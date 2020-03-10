@@ -48,10 +48,11 @@
             let color = `hsl(${makeHue}, 100%, 50%)`;
             let blur = cfg.dotSize - Math.sin(xy / 8) * 2;
             let size = cfg.dotSize - Math.sin(xy / 9) * 2 + Math.sin(xy / 2);
+
             let x = this.pos.x - size / 2;
             let y = this.pos.y - size / 2;
 
-            drawRect(color, x, y, size, size, color, blur, `lighter`);
+            this.drawer.drawRect(color, x, y, size, size, color, blur, `lighter`);
         }
 
         moveDot() {
@@ -119,6 +120,8 @@
 
 (() => {
 
+    // REFACTOR =============> REFACTOR =========> REFACTOR =============> REFACTOR =========>
+
     interface DrawConfigInterface {
         hue: number;
         bgFillColor: string;
@@ -133,10 +136,12 @@
 
     interface DrawRectConfigInterface {
         color: string;
-        x: number;
-        y: number;
-        width: number;
-        height: number;
+        rect: {
+            x: number;
+            y: number;
+            width: number;
+            height: number;
+        }
         shadowColor: string;
         shadowBlur: number;
         gco: string;
