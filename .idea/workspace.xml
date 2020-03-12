@@ -5,7 +5,6 @@
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/refactor.ts" beforeDir="false" afterPath="$PROJECT_DIR$/refactor.ts" afterDir="false" />
     </list>
-    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -30,24 +29,17 @@
   </component>
   <component name="ProjectId" id="1YwAyqlhrg2jxUN7ap9G3qMSGyv" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showExcludedFiles" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
   <component name="PropertiesComponent">
     <property name="DefaultHtmlFileTemplate" value="HTML File" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="list.type.of.created.stylesheet" value="CSS" />
-    <property name="ts.external.directory.path" value="C:\Program Files\JetBrains\PhpStorm 2019.2.4\plugins\JavaScriptLanguage\jsLanguageServicesImpl\external" />
-  </component>
-  <component name="RunDashboard">
-    <option name="ruleStates">
-      <list>
-        <RuleState>
-          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
-        </RuleState>
-        <RuleState>
-          <option name="name" value="StatusDashboardGroupingRule" />
-        </RuleState>
-      </list>
-    </option>
+    <property name="ts.external.directory.path" value="C:\Program Files\JetBrains\PhpStorm 2019.3.3\plugins\JavaScriptLanguage\jsLanguageServicesImpl\external" />
   </component>
   <component name="RunManager">
     <configuration name="index.html" type="JavascriptDebugType" temporary="true" nameIsGenerated="true" uri="http://localhost:63342/project_refactor-learn/index.html" useBuiltInWebServerPort="true">
@@ -88,7 +80,6 @@
     <option name="exactExcludedFiles">
       <list>
         <option value="$PROJECT_DIR$/script.js" />
-        <option value="$PROJECT_DIR$/refactor.js" />
       </list>
     </option>
   </component>
@@ -108,5 +99,15 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="разбил по классам большинство методов." />
     <option name="LAST_COMMIT_MESSAGE" value="разбил по классам большинство методов." />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="2187" y="-19" width="1508" height="1038" maximized="true" key="dock-window-1" timestamp="1584028933224">
+      <screen x="1920" y="0" width="1680" height="1020" />
+    </state>
+    <state x="2187" y="-19" width="1508" height="1038" maximized="true" key="dock-window-1/0.0.1920.1050/1920.0.1680.1020@0.0.1920.1050" timestamp="1584028933224" />
+    <state x="661" y="316" key="git4idea.merge.GitPullDialog" timestamp="1584028415299">
+      <screen x="0" y="0" width="1920" height="1050" />
+    </state>
+    <state x="661" y="316" key="git4idea.merge.GitPullDialog/0.0.1920.1050/1920.0.1680.1020@0.0.1920.1050" timestamp="1584028415299" />
   </component>
 </project>
