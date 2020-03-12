@@ -44,6 +44,11 @@ interface ConfigExecutorsInterface {
     dotMover: DotMoverInterface<DotInterface>;
 }
 
+interface DirInterface {
+    x: number;
+    y: number;
+}
+
 interface ConfigMotionInterface {
     hue: number;
     bgFillColor: string;
@@ -63,6 +68,7 @@ class Motion {
     private dotGenerator: DotGeneratorInterface<DotInterface>;
     private dotMover: DotMoverInterface<DotInterface>;
     private lifeCycleDot: LifeCycleDotInterface<DotInterface>;
+    private dirsList: DirInterface[];
 
     private dots: DotInterface[];
     private target: string;
@@ -102,10 +108,7 @@ class Motion {
     }
 
     private createDots(count) {
-        this.dots = this.dotGenerator.generate({
-            count,
-            hue: this.config.hue
-        });
+        this.dots = this.dotGenerator.generate(count);
     }
 
     private checkLiveTimeAndRemoveDots () {
@@ -113,9 +116,17 @@ class Motion {
             dot.liveTime += 1;
             return dot;
         }).filter(dot => {
-            let percent = Math.random() * Math.exp(dot.liveTime / cfg.distance);
+            let percent = Math.random() * Math.exp(dot.liveTime / this.config.distance);
             return percent < 100;
         })
+    }
+
+    private createDirs(dirsCount: number) {
+        for(let i = 0; i < 360; i += 360 / dirsCount) {
+            const x = Math.cos(i * Math.PI / 180);
+            const y = Math.sin(i * Math.PI / 180);
+            this.dirsList.push({x, y});
+        }
     }
 }
 
@@ -137,7 +148,7 @@ class Dot implements DotInterface {
 }
 
 interface DotGeneratorInterface<DotClass extends DotInterface> {
-    generate: (count: number, hue: number) => DotClass[];
+    generate: (count: number) => DotClass[];
     setHue: (val: number) => void;
 }
 
@@ -148,10 +159,10 @@ class DotGenerator implements DotGeneratorInterface<Dot> {
         this.hue = hue;
     }
 
-    public generate(count: number, hue: number): Dot[] {
+    public generate(count: number): Dot[] {
         const dotsList = [];
-        const hueValue = (hue + 1) % 360;
-        const dot = new Dot(0, 0, hue);
+        const hueValue = (this.hue + 1) % 360;
+        const dot = new Dot(0, 0, 0);
         dot.setHueValue(hueValue);
         dotsList.push(dot);
         return dotsList;
