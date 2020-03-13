@@ -2,7 +2,7 @@ import {ConfigExecutorsInterface, ConfigMotionInterface, DirInterface} from "./t
 import {DrawerInterface} from "../Drawer/type";
 import {DotGeneratorInterface} from "../DotGenerator/type";
 import {DotMoverInterface} from "../DotMover/type";
-import {ExtendedDotInterface} from "../Dot/type";
+import {DotInterface, ExtendedDotInterface} from "../Dot/type";
 
 export class Motion {
     public config: ConfigMotionInterface;
@@ -22,7 +22,11 @@ export class Motion {
         this.dotGenerator = configExecutors.dotGenerator;
         this.dotMover = configExecutors.dotMover;
 
-        this.createDirs(this.config.dirsCount);
+        this.drawer.setConfig({
+            bgFillColor: this.config.bgFillColor,
+            gradientLen: this.config.gradientLen,
+            dotSize: this.config.dotSize
+        });
 
         this.dotMover.setConfigMover({
             dirsCount: this.config.dirsCount,
@@ -32,13 +36,6 @@ export class Motion {
         });
 
         this.dotGenerator.setHue(this.config.hue);
-
-
-        this.drawer.setConfig({
-            bgFillColor: this.config.bgFillColor,
-            gradientLen: this.config.gradientLen,
-            dotSize: this.config.dotSize
-        });
     }
 
     public render(target: string) {
@@ -55,36 +52,29 @@ export class Motion {
         this.drawer.render();
 
         if (this.dots.length < this.config.dotsCount && Math.random() > .8) {
-            this.createDots((this.config.dotsCount - this.dots.length) * .3);
+            const count = (this.config.dotsCount - this.dots.length) * .3;
+            this.createDots(count);
         }
 
+        this.dots = this.dots.map(dot => {
+            this.drawer.redrawDot(dot);
+            dot = this.dotMover.move(dot);
+            dot = this.dotMover.changeDir(dot);
+            return dot;
+        }).filter(this.checkLiveTimeAndRemoveDot.bind(this));
 
-        this.dots.forEach(dot => this.drawer.redrawDot(dot));
-
-        this.dots = this.dots.map(this.dotMover.move);
-        this.dots = this.dots.map(this.dotMover.changeDir);
-        this.checkLiveTimeAndRemoveDots();
     }
 
     private createDots(count) {
-        this.dots = this.dotGenerator.generate(count);
+        this.dots.push(...this.dotGenerator.generate(count));
     }
 
-    private checkLiveTimeAndRemoveDots () {
-        this.dots = this.dots.map(dot => {
-            dot.liveTime += 1;
-            return dot;
-        }).filter(dot => {
-            let percent = Math.random() * Math.exp(dot.liveTime / this.config.distance);
-            return percent < 100;
-        })
-    }
-
-    private createDirs(dirsCount: number) {
-        for(let i = 0; i < 360; i += 360 / dirsCount) {
-            const x = Math.cos(i * Math.PI / 180);
-            const y = Math.sin(i * Math.PI / 180);
-            this.dirsList.push({x, y});
+    private checkLiveTimeAndRemoveDot (dot: DotInterface) {
+        const percent = Math.random() * .3 * Math.exp(dot.liveTime / this.config.distance);
+        if (percent > 100) {
+            return false;
         }
+        return true;
     }
+
 }

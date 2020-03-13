@@ -1,7 +1,7 @@
 import {Motion} from "./Motion";
 import {CanvasDrawer} from "./Drawer";
 import {DotGenerator} from "./DotGenerator";
-import {DotMover} from "./DotMover"; Motion;
+import {DotMover} from "./DotMover";
 
 const motion = new Motion({
     hue: 0,

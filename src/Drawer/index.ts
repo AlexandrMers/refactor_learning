@@ -1,4 +1,4 @@
-import {ColorParamsDrawerInterface, CoordinatsDrawerInterface, DrawerInterface} from "./type";
+import {ColorParamsDrawerInterface, ConfigDrawerInterface, CoordinatsDrawerInterface, DrawerInterface} from "./type";
 import {Dot} from "../Dot";
 
 export class CanvasDrawer implements DrawerInterface {
@@ -31,7 +31,12 @@ export class CanvasDrawer implements DrawerInterface {
 
     public render(): void {
         try {
-            this.drawRect([0, 0, this.canvas.width, this.canvas.height], {
+            this.drawRect({
+                x: 0,
+                y: 0,
+                w: this.canvas.width,
+                h: this.canvas.height
+            }, {
                 shadowColor: 0,
                 shadowBlur: 0,
                 color: this.config.bgFillColor,
@@ -54,12 +59,12 @@ export class CanvasDrawer implements DrawerInterface {
         });
     }
 
-    public drawRect(coordinate: CoordinatsDrawerInterface, colorParams: ColorParamsDrawerInterface) {
+    public drawRect({x, y, w, h}: CoordinatsDrawerInterface, colorParams: ColorParamsDrawerInterface) {
         this.contextCanvas.globalCompositeOperation = colorParams.gco;
         this.contextCanvas.shadowColor = colorParams.shadowColor || `black`;
         this.contextCanvas.shadowBlur = colorParams.shadowBlur || 1;
         this.contextCanvas.fillStyle = colorParams.color;
-        this.contextCanvas.fillRect(...coordinate);
+        this.contextCanvas.fillRect(x, y, w, h);
     }
 
     public redrawDot(dot: Dot) {
@@ -70,10 +75,15 @@ export class CanvasDrawer implements DrawerInterface {
         let color = `hsl(${makeHue}, 100%, 50%)`;
         let blur = this.config.dotSize - Math.sin(xy / 8) * 2;
         let size = this.config.dotSize - Math.sin(xy / 9) * 2 + Math.sin(xy / 2);
-        let x = dot.x - size / 2;
-        let y = dot.y - size / 2;
+        let x = canvasCenterByX + dot.x - size / 2;
+        let y = canvasCenterByY + dot.y - size / 2;
 
-        this.drawRect([x, y, size, size], {
+        this.drawRect({
+            x: x,
+            y: y,
+            h: size,
+            w: size
+        }, {
             color,
             shadowColor: color,
             shadowBlur: blur,

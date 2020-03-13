@@ -1,4 +1,4 @@
-import {ExtendedDotInterface} from "./type";
+import {ConfigDotInterface, ExtendedDotInterface} from "./type";
 
 export class Dot implements ExtendedDotInterface {
     public x: number;

@@ -2,21 +2,16 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="2f723647-bd66-4d12-b263-fde8be6dc4b5" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/Dot/index.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Dot/type.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/DotGenerator/index.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/DotGenerator/type.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/DotMover/index.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/DotMover/type.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Drawer/index.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Drawer/type.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Motion/index.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Motion/type.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/index.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app.ts" beforeDir="false" afterPath="$PROJECT_DIR$/app.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/refactor.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Dot/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/Dot/index.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/DotGenerator/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/DotGenerator/index.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/DotMover/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/DotMover/index.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Drawer/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/Drawer/index.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Drawer/type.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/Drawer/type.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Motion/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/Motion/index.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/index.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/style.css" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -113,7 +108,14 @@
       <option name="project" value="LOCAL" />
       <updated>1584081466158</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="Поставил webpack.">
+      <created>1584084403200</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1584084403200</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">

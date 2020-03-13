@@ -24,4 +24,9 @@ export interface ConfigDrawerInterface {
     dotSize: number;
 }
 
-export type CoordinatsDrawerInterface = [number, number, number, number];
+export interface CoordinatsDrawerInterface {
+    x: number;
+    y: number;
+    h: number;
+    w: number;
+}
