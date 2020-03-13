@@ -1,11 +1,10 @@
-import {DirInterface} from "../Motion/type";
 import {DotInterface} from "../Dot/type";
 
 export interface ConfigMoverInterface {
     dotVelocity: number;
-    dirsList: DirInterface[];
     stepToTurn: number;
     dirsCount: number;
+    gridAngle?: number;
 }
 
 export interface DotMoverInterface<DotClass extends DotInterface> {

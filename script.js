@@ -41,7 +41,7 @@
             this.step = 0;
         }
 
-        redrawDot() {  // responsibility - Drawer
+        redrawDot() {
             let xy = Math.abs(this.pos.x - cx) + Math.abs(this.pos.y - cy);
             let makeHue = (cfg.hue + xy / cfg.gradientLen) % 360;
             let color = `hsl(${makeHue}, 100%, 50%)`;
@@ -53,7 +53,7 @@
             drawRect(color, x, y, size, size, color, blur, `lighter`);
         }
 
-        moveDot() { // responsibility - DotMover
+        moveDot() {
             this.step++;
             this.pos.x += dirsList[this.dir].x * cfg.dotVelocity;
             this.pos.y += dirsList[this.dir].y * cfg.dotVelocity;

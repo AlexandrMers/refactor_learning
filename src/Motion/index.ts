@@ -1,4 +1,4 @@
-import {ConfigExecutorsInterface, ConfigMotionInterface, DirInterface} from "./type";
+import {ConfigExecutorsInterface, ConfigMotionInterface} from "./type";
 import {DrawerInterface} from "../Drawer/type";
 import {DotGeneratorInterface} from "../DotGenerator/type";
 import {DotMoverInterface} from "../DotMover/type";
@@ -9,7 +9,6 @@ export class Motion {
     private drawer: DrawerInterface;
     private dotGenerator: DotGeneratorInterface<DotInterface>;
     private dotMover: DotMoverInterface<DotInterface>;
-    private dirsList: DirInterface[] = [];
 
     private count: number;
 
@@ -35,7 +34,7 @@ export class Motion {
             dirsCount: this.config.dirsCount,
             stepToTurn: this.config.stepToTurn,
             dotVelocity: this.config.dotVelocity,
-            dirsList: this.dirsList
+            gridAngle: this.config.gridAngle
         });
 
     }

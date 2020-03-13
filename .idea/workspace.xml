@@ -2,17 +2,19 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="2f723647-bd66-4d12-b263-fde8be6dc4b5" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/src/DotMover/DotMoverBase/index.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Drawer/DotMoverBase/index.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/script.js" beforeDir="false" afterPath="$PROJECT_DIR$/script.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Dot/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/Dot/index.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Dot/type.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/Dot/type.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/DotGenerator/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/DotGenerator/index.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/DotGenerator/type.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/DotGenerator/type.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/DotMover/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/DotMover/index.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/DotMover/type.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/DotMover/type.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Drawer/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/Drawer/index.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Drawer/type.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/Drawer/type.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Motion/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/Motion/index.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Motion/type.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/Motion/type.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/index.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/style.css" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -48,9 +50,15 @@
     <property name="DefaultHtmlFileTemplate" value="HTML File" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="list.type.of.created.stylesheet" value="CSS" />
     <property name="settings.editor.selected.configurable" value="MTConfigurable" />
     <property name="ts.external.directory.path" value="C:\Users\programmer\workspase\project_refactor-learn\node_modules\typescript\lib" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\programmer\workspase\project_refactor-learn" />
+    </key>
   </component>
   <component name="RunDashboard">
     <option name="ruleStates">
@@ -88,7 +96,7 @@
       <workItem from="1583856274630" duration="5000" />
       <workItem from="1584020006483" duration="1191000" />
       <workItem from="1584066130152" duration="4111000" />
-      <workItem from="1584097936109" duration="3687000" />
+      <workItem from="1584097936109" duration="10156000" />
     </task>
     <task id="LOCAL-00001" summary="разбил по классам большинство методов.">
       <created>1583929302206</created>
@@ -125,7 +133,14 @@
       <option name="project" value="LOCAL" />
       <updated>1584094949787</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="Отрефакторил методы.">
+      <created>1584101667207</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1584101667207</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -133,7 +148,6 @@
     <option name="exactExcludedFiles">
       <list>
         <option value="$PROJECT_DIR$/script.js" />
-        <option value="$PROJECT_DIR$/refactor.js" />
         <option value="$PROJECT_DIR$/app.js" />
       </list>
     </option>
@@ -155,7 +169,8 @@
     <MESSAGE value="разбил по классам большинство методов." />
     <MESSAGE value="Осталось сделать changeDir и killDot." />
     <MESSAGE value="Поставил webpack." />
-    <option name="LAST_COMMIT_MESSAGE" value="Поставил webpack." />
+    <MESSAGE value="Отрефакторил методы." />
+    <option name="LAST_COMMIT_MESSAGE" value="Отрефакторил методы." />
   </component>
   <component name="WindowStateProjectService">
     <state x="578" y="117" key="CommitChangelistDialog2" timestamp="1584034005029">

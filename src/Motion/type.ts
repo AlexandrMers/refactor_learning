@@ -13,6 +13,7 @@ export interface ConfigMotionInterface {
     dotVelocity: number;
     distance: number;
     gradientLen: number;
+    gridAngle?: number;
 }
 
 export interface ConfigExecutorsInterface {

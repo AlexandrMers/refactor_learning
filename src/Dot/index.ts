@@ -1,16 +1,16 @@
-import {ConfigDotInterface, DotInterface} from "./type";
+import {DotInterface} from "./type";
 
 export class Dot implements DotInterface {
     public x: number;
     public y: number;
     public liveTime: number;
-    public dir: number;
+    public direction: number;
 
-    constructor(configDot: ConfigDotInterface) {
+    constructor(configDot: DotInterface) {
         this.x = configDot.x;
         this.y = configDot.y;
         this.liveTime = configDot.liveTime;
-        this.dir = configDot.dir;
+        this.direction = configDot.direction;
     }
 
 }
