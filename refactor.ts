@@ -74,7 +74,6 @@ class Motion {
     private dirsList: DirInterface[] = [];
 
     private dots: ExtendedDotInterface[] = [];
-    private target: string;
 
     constructor(configDraw: ConfigMotionInterface, configExecutors: ConfigExecutorsInterface) {
 
@@ -104,17 +103,16 @@ class Motion {
     }
 
     public render(target: string) {
-        this.target = target;
-        this.drawer.setTarget(this.target);
+        this.drawer.setTarget(target);
         this.loop();
     }
 
     private loop() {
         this.step();
-        requestAnimationFrame(this.loop);
+        requestAnimationFrame(this.loop.bind(this));
     }
 
-    private step() {
+    public step() {
         this.drawer.render();
 
         if (this.dots.length < this.config.dotsCount && Math.random() > .8) {
@@ -128,7 +126,6 @@ class Motion {
         this.dots = this.dots.map(this.dotMover.changeDir);
         this.checkLiveTimeAndRemoveDots();
     }
-
 
     private createDots(count) {
         this.dots = this.dotGenerator.generate(count);
@@ -151,9 +148,7 @@ class Motion {
             this.dirsList.push({x, y});
         }
     }
-
 }
-
 
 interface ConfigDotInterface {
     x: number;
@@ -226,28 +221,19 @@ class CanvasDrawer implements DrawerInterface {
 
     private config: ConfigDrawerInterface;
 
-    private canvasWidth: number;
-    private canvasHeight: number;
-    private canvasCenterByX: number;
-    private canvasCenterByY: number;
-
     public setTarget(target: string) {
         this.target = target;
 
-        this.canvas = document.createElement('canvas');
-
-
         try {
             this.elementForRenderInner = document.querySelector(this.target);
+            this.canvas = document.createElement('canvas');
             this.elementForRenderInner.appendChild(this.canvas);
-
+            this.contextCanvas = this.canvas.getContext("2d");
+            this.resizeCanvas();
+            this.observerOfResize();
         } catch (error) {
             console.error("Not valid the selector");
         }
-
-        this.contextCanvas = this.canvas.getContext("2d");
-        this.resizeCanvas();
-        this.observerOfResize();
     }
 
     public setConfig(config: ConfigDrawerInterface) {
@@ -256,8 +242,7 @@ class CanvasDrawer implements DrawerInterface {
 
     public render(): void {
         try {
-
-            this.drawRect([0, 0, this.canvasWidth, this.canvasHeight], {
+            this.drawRect([0, 0, this.canvas.width, this.canvas.height], {
                 shadowColor: 0,
                 shadowBlur: 0,
                 color: this.config.bgFillColor,
@@ -270,10 +255,8 @@ class CanvasDrawer implements DrawerInterface {
     }
 
     public resizeCanvas() {
-        this.canvasWidth = this.canvas.width = innerWidth;
-        this.canvasHeight = this.canvasHeight = innerHeight;
-        this.canvasCenterByX = this.canvasWidth / 2;
-        this.canvasCenterByY = this.canvasHeight / 2;
+        this.canvas.width = this.elementForRenderInner.clientWidth;
+        this.canvas.height = this.elementForRenderInner.clientHeight;
     }
 
     public observerOfResize() {
@@ -291,7 +274,9 @@ class CanvasDrawer implements DrawerInterface {
     }
 
     public redrawDot(dot: Dot) {
-        let xy = Math.abs(dot.x - this.canvasCenterByX) + Math.abs(dot.y - this.canvasCenterByY);
+        const canvasCenterByX = this.canvas.width / 2;
+        const canvasCenterByY = this.canvas.height / 2;
+        let xy = Math.abs(dot.x - canvasCenterByX) + Math.abs(dot.y - canvasCenterByY);
         let makeHue = (dot.hue + xy / this.config.gradientLen) % 360;
         let color = `hsl(${makeHue}, 100%, 50%)`;
         let blur = this.config.dotSize - Math.sin(xy / 8) * 2;

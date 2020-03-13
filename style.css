@@ -2,6 +2,12 @@ body {
     margin: 0%;
     overflow: hidden;
 }
+#block-for-render {
+    width: 1280px;
+    height: 720px;
+    margin: auto;
+}
+
 canvas {
     background: rgb(30, 30, 30);
 }
