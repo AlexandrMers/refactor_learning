@@ -4,11 +4,17 @@ import {Dot} from "../Dot";
 export class CanvasDrawer implements DrawerInterface {
     private target: string;
 
+    private hue: number;
+
     private canvas: HTMLCanvasElement;
     private contextCanvas: any;
     private elementForRenderInner: HTMLElement;
 
     private config: ConfigDrawerInterface;
+
+    public setHue(value: number) {
+        this.hue = value;
+    }
 
     public setTarget(target: string) {
         this.target = target;
@@ -71,7 +77,7 @@ export class CanvasDrawer implements DrawerInterface {
         const canvasCenterByX = this.canvas.width / 2;
         const canvasCenterByY = this.canvas.height / 2;
         let xy = Math.abs(dot.x - canvasCenterByX) + Math.abs(dot.y - canvasCenterByY);
-        let makeHue = (dot.hue + xy / this.config.gradientLen) % 360;
+        let makeHue = (this.hue + xy / this.config.gradientLen) % 360;
         let color = `hsl(${makeHue}, 100%, 50%)`;
         let blur = this.config.dotSize - Math.sin(xy / 8) * 2;
         let size = this.config.dotSize - Math.sin(xy / 9) * 2 + Math.sin(xy / 2);

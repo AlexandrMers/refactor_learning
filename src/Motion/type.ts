@@ -1,7 +1,7 @@
 import {DrawerInterface} from "../Drawer/type";
 import {DotGeneratorInterface} from "../DotGenerator/type";
-import {ExtendedDotInterface} from "../Dot/type";
 import {DotMoverInterface} from "../DotMover/type";
+import {DotInterface} from "../Dot/type";
 
 export interface ConfigMotionInterface {
     hue: number;
@@ -17,8 +17,8 @@ export interface ConfigMotionInterface {
 
 export interface ConfigExecutorsInterface {
     drawer: DrawerInterface;
-    dotGenerator: DotGeneratorInterface<ExtendedDotInterface>;
-    dotMover: DotMoverInterface<ExtendedDotInterface>;
+    dotGenerator: DotGeneratorInterface<DotInterface>;
+    dotMover: DotMoverInterface<DotInterface>;
 }
 
 export interface DirInterface {

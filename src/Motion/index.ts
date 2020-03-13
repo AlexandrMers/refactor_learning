@@ -2,17 +2,18 @@ import {ConfigExecutorsInterface, ConfigMotionInterface, DirInterface} from "./t
 import {DrawerInterface} from "../Drawer/type";
 import {DotGeneratorInterface} from "../DotGenerator/type";
 import {DotMoverInterface} from "../DotMover/type";
-import {DotInterface, ExtendedDotInterface} from "../Dot/type";
+import {DotInterface} from "../Dot/type";
 
 export class Motion {
     public config: ConfigMotionInterface;
-
     private drawer: DrawerInterface;
-    private dotGenerator: DotGeneratorInterface<ExtendedDotInterface>;
-    private dotMover: DotMoverInterface<ExtendedDotInterface>;
+    private dotGenerator: DotGeneratorInterface<DotInterface>;
+    private dotMover: DotMoverInterface<DotInterface>;
     private dirsList: DirInterface[] = [];
 
-    private dots: ExtendedDotInterface[] = [];
+    private count: number;
+
+    private dots: DotInterface[] = [];
 
     constructor(configDraw: ConfigMotionInterface, configExecutors: ConfigExecutorsInterface) {
 
@@ -28,6 +29,8 @@ export class Motion {
             dotSize: this.config.dotSize
         });
 
+        this.drawer.setHue(this.config.hue);
+
         this.dotMover.setConfigMover({
             dirsCount: this.config.dirsCount,
             stepToTurn: this.config.stepToTurn,
@@ -35,7 +38,6 @@ export class Motion {
             dirsList: this.dirsList
         });
 
-        this.dotGenerator.setHue(this.config.hue);
     }
 
     public render(target: string) {
@@ -52,8 +54,7 @@ export class Motion {
         this.drawer.render();
 
         if (this.dots.length < this.config.dotsCount && Math.random() > .8) {
-            const count = (this.config.dotsCount - this.dots.length) * .3;
-            this.createDots(count);
+            this.createDots(++this.count);
         }
 
         this.dots = this.dots.map(dot => {
@@ -71,10 +72,10 @@ export class Motion {
 
     private checkLiveTimeAndRemoveDot (dot: DotInterface) {
         const percent = Math.random() * .3 * Math.exp(dot.liveTime / this.config.distance);
-        if (percent > 100) {
-            return false;
+        if(percent < 100) {
+            return true;
         }
-        return true;
+        return false;
     }
 
 }

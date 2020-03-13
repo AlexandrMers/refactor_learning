@@ -1,10 +1,9 @@
-import {ConfigDotInterface, ExtendedDotInterface} from "./type";
+import {ConfigDotInterface, DotInterface} from "./type";
 
-export class Dot implements ExtendedDotInterface {
+export class Dot implements DotInterface {
     public x: number;
     public y: number;
     public liveTime: number;
-    public hue: number;
     public dir: number;
 
     constructor(configDot: ConfigDotInterface) {
@@ -14,7 +13,4 @@ export class Dot implements ExtendedDotInterface {
         this.dir = configDot.dir;
     }
 
-    public setHueValue(value: number) {
-        this.hue = value;
-    }
 }

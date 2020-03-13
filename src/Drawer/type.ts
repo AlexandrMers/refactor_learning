@@ -1,4 +1,5 @@
-import {ExtendedDotInterface} from "../Dot/type";
+import {Dot} from "../Dot";
+import {DotInterface} from "../Dot/type";
 
 export interface ColorParamsDrawerInterface {
     color: string;
@@ -15,7 +16,8 @@ export interface DrawerInterface {
     ) => void;
     setConfig: (config: ConfigDrawerInterface) => void;
     setTarget: (target: string) => void;
-    redrawDot: (dot: ExtendedDotInterface) => void;
+    redrawDot: (dot: DotInterface) => void;
+    setHue: (value: number) => void;
 }
 
 export interface ConfigDrawerInterface {

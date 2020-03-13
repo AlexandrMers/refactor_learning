@@ -1,6 +1,5 @@
-import {ExtendedDotInterface} from "../Dot/type";
+import {DotInterface} from "../Dot/type";
 
-export interface DotGeneratorInterface<DotClass extends ExtendedDotInterface> {
+export interface DotGeneratorInterface<DotClass extends DotInterface> {
     generate: (count: number) => DotClass[];
-    setHue: (val: number) => void;
 }

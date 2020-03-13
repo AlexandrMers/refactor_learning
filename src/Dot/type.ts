@@ -4,9 +4,7 @@ export interface DotInterface {
     liveTime: number;
 }
 
-export interface ExtendedDotInterface extends DotInterface {
-    hue: number;
-    setHueValue: (value: number) => void;
+export interface DotInterface {
 }
 
 export interface ConfigDotInterface {
