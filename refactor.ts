@@ -15,6 +15,7 @@ interface DrawerInterface {
     ) => void;
     setConfig: (config: ConfigDrawerInterface) => void;
     setTarget: (target: string) => void;
+    redrawDot: (dot: ExtendedDotInterface) => void;
 }
 
 interface DotInterface {
@@ -28,11 +29,17 @@ interface ExtendedDotInterface extends DotInterface {
     setHueValue: (value: number) => void;
 }
 
+interface ConfigMoverInterface {
+    dotVelocity: number;
+    dirsList: DirInterface[];
+    stepToTurn: number;
+    dirsCount: number;
+}
 
 interface DotMoverInterface<DotClass extends DotInterface> {
     move: (dot: DotClass) => DotClass;
-    setDotVelocity: (value: number) => void;
-    setDirsList: (list: DirInterface[]) => void;
+    changeDir: (dot: DotClass) => DotClass;
+    setConfigMover: (config: ConfigMoverInterface) => void;
 }
 
 interface ConfigExecutorsInterface {
@@ -64,9 +71,9 @@ class Motion {
     private drawer: DrawerInterface;
     private dotGenerator: DotGeneratorInterface<ExtendedDotInterface>;
     private dotMover: DotMoverInterface<ExtendedDotInterface>;
-    private dirsList: DirInterface[];
+    private dirsList: DirInterface[] = [];
 
-    private dots: ExtendedDotInterface[];
+    private dots: ExtendedDotInterface[] = [];
     private target: string;
 
     constructor(configDraw: ConfigMotionInterface, configExecutors: ConfigExecutorsInterface) {
@@ -79,11 +86,15 @@ class Motion {
 
         this.createDirs(this.config.dirsCount);
 
-        this.dotMover.setDirsList(this.dirsList);
+        this.dotMover.setConfigMover({
+            dirsCount: this.config.dirsCount,
+            stepToTurn: this.config.stepToTurn,
+            dotVelocity: this.config.dotVelocity,
+            dirsList: this.dirsList
+        });
 
         this.dotGenerator.setHue(this.config.hue);
 
-        this.dotMover.setDotVelocity(this.config.dotVelocity);
 
         this.drawer.setConfig({
             bgFillColor: this.config.bgFillColor,
@@ -110,9 +121,14 @@ class Motion {
             this.createDots((this.config.dotsCount - this.dots.length) * .3);
         }
 
+
+        this.dots.forEach(dot => this.drawer.redrawDot(dot));
+
         this.dots = this.dots.map(this.dotMover.move);
+        this.dots = this.dots.map(this.dotMover.changeDir);
         this.checkLiveTimeAndRemoveDots();
     }
+
 
     private createDots(count) {
         this.dots = this.dotGenerator.generate(count);
@@ -135,6 +151,7 @@ class Motion {
             this.dirsList.push({x, y});
         }
     }
+
 }
 
 
@@ -200,14 +217,9 @@ interface ConfigDrawerInterface {
     dotSize: number;
 }
 
-interface RedrawConfigInterface {
-    x: number;
-    y: number;
-    hue: number;
-}
-
 class CanvasDrawer implements DrawerInterface {
     private target: string;
+
     private canvas: HTMLCanvasElement;
     private contextCanvas: any;
     private elementForRenderInner: HTMLElement;
@@ -219,19 +231,23 @@ class CanvasDrawer implements DrawerInterface {
     private canvasCenterByX: number;
     private canvasCenterByY: number;
 
-    constructor() {
-        this.canvas = document.createElement('canvas');
-        this.contextCanvas = this.canvas.getContext("2d");
-
-        this.elementForRenderInner = document.querySelector(this.target);
-        this.elementForRenderInner.appendChild(this.canvas);
-
-        this.resizeCanvas();
-        this.observerOfResize();
-    }
-
     public setTarget(target: string) {
         this.target = target;
+
+        this.canvas = document.createElement('canvas');
+
+
+        try {
+            this.elementForRenderInner = document.querySelector(this.target);
+            this.elementForRenderInner.appendChild(this.canvas);
+
+        } catch (error) {
+            console.error("Not valid the selector");
+        }
+
+        this.contextCanvas = this.canvas.getContext("2d");
+        this.resizeCanvas();
+        this.observerOfResize();
     }
 
     public setConfig(config: ConfigDrawerInterface) {
@@ -274,14 +290,14 @@ class CanvasDrawer implements DrawerInterface {
         this.contextCanvas.fillRect(...coordinate);
     }
 
-    public redrawDot(redrawConfig: RedrawConfigInterface) {
-        let xy = Math.abs(redrawConfig.x - this.canvasCenterByX) + Math.abs(redrawConfig.y - this.canvasCenterByY);
-        let makeHue = (redrawConfig.hue + xy / this.config.gradientLen) % 360;
+    public redrawDot(dot: Dot) {
+        let xy = Math.abs(dot.x - this.canvasCenterByX) + Math.abs(dot.y - this.canvasCenterByY);
+        let makeHue = (dot.hue + xy / this.config.gradientLen) % 360;
         let color = `hsl(${makeHue}, 100%, 50%)`;
         let blur = this.config.dotSize - Math.sin(xy / 8) * 2;
         let size = this.config.dotSize - Math.sin(xy / 9) * 2 + Math.sin(xy / 2);
-        let x = redrawConfig.x - size / 2;
-        let y = redrawConfig.y - size / 2;
+        let x = dot.x - size / 2;
+        let y = dot.y - size / 2;
 
         this.drawRect([x, y, size, size], {
             color,
@@ -292,31 +308,44 @@ class CanvasDrawer implements DrawerInterface {
     }
 }
 
-interface ConfigMoveInterface extends DotInterface {
-    dir: number;
-}
-
 class DotMover implements DotMoverInterface<Dot> {
+    private configMove: ConfigMoverInterface;
 
-    private liveTime: number;
-    private x: number;
-    private y: number;
-    private dotVelocity: number;
-    private dirsList: DirInterface[];
 
-    setDotVelocity(value: number) {
-        this.dotVelocity = value;
-    }
-
-    setDirsList(list: DirInterface[]) {
-        this.dirsList = list;
-    }
+    setConfigMover(config: ConfigMoverInterface) {
+        this.configMove = config;
+    };
 
    public move(dot: Dot) {
        dot.liveTime++;
-       dot.x += this.dirsList[dot.dir].x * this.dotVelocity;
-       dot.y += this.dirsList[dot.dir].y * this.dotVelocity;
+       dot.x += this.configMove.dirsList[dot.dir].x * this.configMove.dotVelocity;
+       dot.y += this.configMove.dirsList[dot.dir].y * this.configMove.dotVelocity;
 
        return dot;
    }
+
+   changeDir(dot: Dot) {
+       if (dot.liveTime % this.configMove.stepToTurn === 0) {
+           dot.dir = Math.random() > 0.5 ? (dot.dir + 1) % this.configMove.dirsCount : (dot.dir + this.configMove.dirsCount - 1) % this.configMove.dirsCount;
+       }
+       return dot;
+   }
 }
+
+const motion = new Motion({
+    hue: 0,
+    bgFillColor: `rgba(50, 50, 50, .05)`,
+    dirsCount: 6,
+    stepToTurn: 12,
+    dotSize: 4,
+    dotsCount: 300,
+    dotVelocity: 2,
+    distance: 70,
+    gradientLen: 5,
+}, {
+    drawer: new CanvasDrawer(),
+    dotGenerator: new DotGenerator(),
+    dotMover: new DotMover()
+});
+
+motion.render("#block-for-render");
