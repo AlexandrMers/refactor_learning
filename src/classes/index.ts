@@ -21,7 +21,6 @@ const motion1 = new Motion({
 });
 motion1.render("#block-for-render1");
 
-
 const motion2 = new Motion({
     hue: 200,
     bgFillColor: `rgba(50, 50, 50, .01)`,

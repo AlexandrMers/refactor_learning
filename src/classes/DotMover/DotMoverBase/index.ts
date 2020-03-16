@@ -4,7 +4,7 @@ import {DirInterface} from "../../Motion/type";
 
 export abstract class DotMoverBase implements DotMoverInterface<Dot> {
     public dirsList: DirInterface[] = [];
-    public dir: number;
+    public direction: number;
     public configMove: ConfigMoverInterface;
 
     setConfigMover(config: ConfigMoverInterface) {

@@ -2,12 +2,24 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="2f723647-bd66-4d12-b263-fde8be6dc4b5" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/src/functions/Motion/index.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/functions/RenderDots/renderDots.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/functions/index.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/DotGenerator/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/DotGenerator/index.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Motion/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/Motion/index.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/index.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/style.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app.ts" beforeDir="false" afterPath="$PROJECT_DIR$/app.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Dot/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/classes/Dot/index.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Dot/type.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/classes/Dot/type.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/DotGenerator/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/classes/DotGenerator/index.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/DotGenerator/type.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/classes/DotGenerator/type.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/DotMover/DotMoverBase/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/classes/DotMover/DotMoverBase/index.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/DotMover/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/classes/DotMover/index.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/DotMover/type.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/classes/DotMover/type.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Drawer/CanvasDrawerBase/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/classes/Drawer/CanvasDrawerBase/index.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Drawer/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/classes/Drawer/index.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Drawer/type.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/classes/Drawer/type.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Motion/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/classes/Motion/index.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Motion/type.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/classes/Motion/type.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/classes/index.ts" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -30,6 +42,11 @@
     </option>
   </component>
   <component name="Git.Settings">
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="master" />
+      </map>
+    </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="ProjectId" id="1YwAyqlhrg2jxUN7ap9G3qMSGyv" />
@@ -49,6 +66,9 @@
     <property name="ts.external.directory.path" value="C:\Users\programmer\workspase\project_refactor-learn\node_modules\typescript\lib" />
   </component>
   <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\programmer\workspase\project_refactor-learn\src\classes" />
+    </key>
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Users\programmer\workspase\project_refactor-learn" />
     </key>
@@ -90,7 +110,8 @@
       <workItem from="1584020006483" duration="1191000" />
       <workItem from="1584066130152" duration="4111000" />
       <workItem from="1584097936109" duration="10197000" />
-      <workItem from="1584335734421" duration="17189000" />
+      <workItem from="1584335734421" duration="17799000" />
+      <workItem from="1584357245426" duration="9992000" />
     </task>
     <task id="LOCAL-00001" summary="разбил по классам большинство методов.">
       <created>1583929302206</created>
@@ -148,7 +169,14 @@
       <option name="project" value="LOCAL" />
       <updated>1584350068590</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="Сделал 3 вариации движений.">
+      <created>1584355652842</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1584355652842</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -180,24 +208,17 @@
     <MESSAGE value="Отрефакторил методы." />
     <MESSAGE value="Добавлена вторая вариация анимации." />
     <MESSAGE value="отрефакторил методы Motion. Рефактор класса CanvasDrawerBase и его наследников." />
-    <option name="LAST_COMMIT_MESSAGE" value="отрефакторил методы Motion. Рефактор класса CanvasDrawerBase и его наследников." />
+    <MESSAGE value="Сделал 3 вариации движений." />
+    <option name="LAST_COMMIT_MESSAGE" value="Сделал 3 вариации движений." />
   </component>
   <component name="WindowStateProjectService">
-    <state x="578" y="117" key="CommitChangelistDialog2" timestamp="1584034005029">
-      <screen x="0" y="0" width="1920" height="1050" />
-    </state>
-    <state x="578" y="117" key="CommitChangelistDialog2/0.0.1920.1050/1920.0.1680.1020@0.0.1920.1050" timestamp="1584034005029" />
-    <state x="552" y="257" key="Vcs.Push.Dialog.v2" timestamp="1584034010739">
-      <screen x="0" y="0" width="1920" height="1050" />
-    </state>
-    <state x="552" y="257" key="Vcs.Push.Dialog.v2/0.0.1920.1050/1920.0.1680.1020@0.0.1920.1050" timestamp="1584034010739" />
-    <state x="2042" y="-12" width="1504" height="1001" maximized="true" key="dock-window-1" timestamp="1584070143223">
-      <screen x="1920" y="0" width="1680" height="1020" />
-    </state>
-    <state x="2042" y="-12" width="1504" height="1001" maximized="true" key="dock-window-1/0.0.1920.1050/1920.0.1680.1020@0.0.1920.1050" timestamp="1584070143223" />
-    <state x="661" y="316" key="git4idea.merge.GitPullDialog" timestamp="1584028415299">
-      <screen x="0" y="0" width="1920" height="1050" />
-    </state>
-    <state x="661" y="316" key="git4idea.merge.GitPullDialog/0.0.1920.1050/1920.0.1680.1020@0.0.1920.1050" timestamp="1584028415299" />
+    <state x="578" y="117" key="CommitChangelistDialog2" />
+    <state x="578" y="117" key="CommitChangelistDialog2/0.0.1920.1050/1920.0.1680.1020@0.0.1920.1050" />
+    <state x="552" y="257" key="Vcs.Push.Dialog.v2" />
+    <state x="552" y="257" key="Vcs.Push.Dialog.v2/0.0.1920.1050/1920.0.1680.1020@0.0.1920.1050" />
+    <state x="2042" y="-12" width="1504" height="1001" maximized="true" key="dock-window-1" />
+    <state x="2042" y="-12" width="1504" height="1001" maximized="true" key="dock-window-1/0.0.1920.1050/1920.0.1680.1020@0.0.1920.1050" />
+    <state x="661" y="316" key="git4idea.merge.GitPullDialog" />
+    <state x="661" y="316" key="git4idea.merge.GitPullDialog/0.0.1920.1050/1920.0.1680.1020@0.0.1920.1050" />
   </component>
 </project>

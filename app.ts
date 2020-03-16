@@ -1,3 +1,5 @@
 import "./style.css";
 
-import "./src/index";
+import "./src/classes/index";
+
+// import "./src/functions/index"
