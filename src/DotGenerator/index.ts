@@ -20,7 +20,9 @@ export class DotGenerator implements DotGeneratorInterface<DotInterface> {
     }
 
     public checkLiveTimeAndRemoveDot(dot: DotInterface): boolean {
-        const percent = Math.random() * .3 * Math.exp(dot.liveTime / this.distance);
-        return percent < 100;
+        if (dot.liveTime < this.distance) {
+            return true;
+        }
+        return Math.random() > .3;
     }
 }

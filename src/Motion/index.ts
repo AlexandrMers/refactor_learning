@@ -48,18 +48,18 @@ export class Motion {
 
     public step() {
         this.drawer.render();
-
-        this.createDots();
-        compose(
+        this.dots = compose(
+            this.createDots.bind(this),
             filter(this.dotGenerator.checkLiveTimeAndRemoveDot.bind(this.dotGenerator)),
             map(this.dotMover.moveAndChangeDir.bind(this.dotMover)),
             forEach(this.drawer.redrawDot.bind(this.drawer)),
-        )(this.dots as DotInterface[]);
+        )(this.dots as DotInterface[]) as DotInterface[];
     }
 
-    private createDots() {
-        if (this.dots.length < this.config.dotsCount && Math.random() > .8) {
-            this.dots.push(...this.dotGenerator.generate());
+    private createDots(dots: DotInterface[]) {
+        if (this.dots.length < this.config.dotsCount) {
+            return [...dots, ...this.dotGenerator.generate()];
         }
+        return dots;
     }
 }
