@@ -13,15 +13,15 @@ export abstract class DotMoverBase implements DotMoverInterface<Dot> {
         this.createDirs(this.configMove.dirsCount);
     };
 
-    public move(dot: Dot) {
+    public moveAndChangeDir(dot: Dot) {
         dot.liveTime++;
         dot.x += this.dirsList[dot.direction].x * this.configMove.dotVelocity;
         dot.y += this.dirsList[dot.direction].y * this.configMove.dotVelocity;
 
-        return dot;
+        return this.changeDir(dot);
     }
 
-    changeDir(dot: Dot) {
+    private changeDir(dot: Dot) {
         if (dot.liveTime % this.configMove.stepToTurn === 0) {
             dot.direction = Math.random() > 0.5 ? (dot.direction + 1) % this.configMove.dirsCount : (dot.direction + this.configMove.dirsCount - 1) % this.configMove.dirsCount;
         }

@@ -2,18 +2,18 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="2f723647-bd66-4d12-b263-fde8be6dc4b5" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/DotMover/DotMoverBase/index.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Drawer/DotMoverBase/index.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/script.js" beforeDir="false" afterPath="$PROJECT_DIR$/script.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Dot/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/Dot/index.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Dot/type.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/Dot/type.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/DotGenerator/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/DotGenerator/index.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/DotGenerator/type.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/DotGenerator/type.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/DotMover/DotMoverBase/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/DotMover/DotMoverBase/index.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/DotMover/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/DotMover/index.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/DotMover/type.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/DotMover/type.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Drawer/DotMoverBase/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/Drawer/CanvasDrawerBase/index.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Drawer/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/Drawer/index.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Drawer/type.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/Drawer/type.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Motion/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/Motion/index.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Motion/type.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/Motion/type.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/index.ts" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -96,7 +96,8 @@
       <workItem from="1583856274630" duration="5000" />
       <workItem from="1584020006483" duration="1191000" />
       <workItem from="1584066130152" duration="4111000" />
-      <workItem from="1584097936109" duration="10156000" />
+      <workItem from="1584097936109" duration="10197000" />
+      <workItem from="1584335734421" duration="13579000" />
     </task>
     <task id="LOCAL-00001" summary="разбил по классам большинство методов.">
       <created>1583929302206</created>
@@ -140,7 +141,14 @@
       <option name="project" value="LOCAL" />
       <updated>1584101667207</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="Добавлена вторая вариация анимации.">
+      <created>1584108595064</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1584108595064</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -170,7 +178,8 @@
     <MESSAGE value="Осталось сделать changeDir и killDot." />
     <MESSAGE value="Поставил webpack." />
     <MESSAGE value="Отрефакторил методы." />
-    <option name="LAST_COMMIT_MESSAGE" value="Отрефакторил методы." />
+    <MESSAGE value="Добавлена вторая вариация анимации." />
+    <option name="LAST_COMMIT_MESSAGE" value="Добавлена вторая вариация анимации." />
   </component>
   <component name="WindowStateProjectService">
     <state x="578" y="117" key="CommitChangelistDialog2" timestamp="1584034005029">

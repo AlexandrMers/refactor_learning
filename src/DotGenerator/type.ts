@@ -1,5 +1,7 @@
 import {DotInterface} from "../Dot/type";
 
 export interface DotGeneratorInterface<DotClass extends DotInterface> {
-    generate: (count: number) => DotClass[];
+    generate: () => DotClass[];
+    checkLiveTimeAndRemoveDot: (Dot: DotInterface, distance: number) => boolean;
+    setDistance: (value: number) => void;
 }

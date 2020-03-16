@@ -4,17 +4,23 @@ import {DotInterface} from "../Dot/type";
 
 export class DotGenerator implements DotGeneratorInterface<DotInterface> {
 
-    public generate(count: number): Dot[] {
-        const dotsList = [];
+    private distance: number;
 
-            const dot = new Dot({
-                x: 0,
-                y: 0,
-                liveTime: 0,
-                direction: 0
-            });
-            dotsList.push(dot);
+    public setDistance(value: number) {
+        this.distance = value;
+    }
 
-        return dotsList;
+    public generate(): Dot[] {
+        return [new Dot({
+            x: 0,
+            y: 0,
+            liveTime: 0,
+            direction: 0
+        })];
+    }
+
+    public checkLiveTimeAndRemoveDot(dot: DotInterface): boolean {
+        const percent = Math.random() * .3 * Math.exp(dot.liveTime / this.distance);
+        return percent < 100;
     }
 }

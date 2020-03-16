@@ -1,6 +1,6 @@
 import {DotMoverBase} from "./DotMoverBase";
 
-export class DotMoverV1 extends DotMoverBase {
+export class DotMoverHexagon extends DotMoverBase {
     createDir(): void {
         this.dir = (Math.random() * 3 | 0) * 2;
     }
@@ -14,7 +14,7 @@ export class DotMoverV1 extends DotMoverBase {
     }
 }
 
-export class DotMoverV2 extends DotMoverBase {
+export class DotMoverTrapeze extends DotMoverBase {
     createDir(): void {
         if(this.configMove.dirsCount !== 6) {
             this.dir = Math.random() * this.configMove.dirsCount | 0

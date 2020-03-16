@@ -8,7 +8,6 @@ export interface ConfigMoverInterface {
 }
 
 export interface DotMoverInterface<DotClass extends DotInterface> {
-    move: (dot: DotClass) => DotClass;
-    changeDir: (dot: DotClass) => DotClass;
+    moveAndChangeDir: (dot: DotClass) => DotClass;
     setConfigMover: (config: ConfigMoverInterface) => void;
 }
