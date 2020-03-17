@@ -1,5 +1,5 @@
 import "./style.css";
 
-import "./src/classes/index";
+// import "./src/classes/index";
 
-// import "./src/functions/index"
+import "./src/functions/index"
