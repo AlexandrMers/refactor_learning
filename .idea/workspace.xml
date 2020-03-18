@@ -2,11 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="2f723647-bd66-4d12-b263-fde8be6dc4b5" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/deployment.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/functions/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/functions/index.ts" afterDir="false" />
     </list>
-    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -58,18 +57,6 @@
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Users\programmer\workspase\project_refactor-learn" />
     </key>
-  </component>
-  <component name="RunDashboard">
-    <option name="ruleStates">
-      <list>
-        <RuleState>
-          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
-        </RuleState>
-        <RuleState>
-          <option name="name" value="StatusDashboardGroupingRule" />
-        </RuleState>
-      </list>
-    </option>
   </component>
   <component name="RunManager">
     <configuration name="index.html" type="JavascriptDebugType" temporary="true" nameIsGenerated="true" uri="http://localhost:63342/project_refactor-learn/index.html" useBuiltInWebServerPort="true">
@@ -216,13 +203,24 @@
     <option name="LAST_COMMIT_MESSAGE" value="Начал делать реализацию на функциях. Написал функцию infinityLoopWithCicle" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="578" y="117" key="CommitChangelistDialog2" />
-    <state x="578" y="117" key="CommitChangelistDialog2/0.0.1920.1050/1920.0.1680.1020@0.0.1920.1050" />
-    <state x="552" y="257" key="Vcs.Push.Dialog.v2" />
-    <state x="552" y="257" key="Vcs.Push.Dialog.v2/0.0.1920.1050/1920.0.1680.1020@0.0.1920.1050" />
-    <state x="2042" y="-12" width="1504" height="1001" maximized="true" key="dock-window-1" />
-    <state x="2042" y="-12" width="1504" height="1001" maximized="true" key="dock-window-1/0.0.1920.1050/1920.0.1680.1020@0.0.1920.1050" />
-    <state x="661" y="316" key="git4idea.merge.GitPullDialog" />
-    <state x="661" y="316" key="git4idea.merge.GitPullDialog/0.0.1920.1050/1920.0.1680.1020@0.0.1920.1050" />
+    <state x="578" y="117" key="CommitChangelistDialog2" timestamp="1584551081469" />
+    <state x="578" y="117" key="CommitChangelistDialog2/0.0.1920.1050/1920.0.1680.1020@0.0.1920.1050" timestamp="1584551081469" />
+    <state x="552" y="257" key="Vcs.Push.Dialog.v2" timestamp="1584551081469" />
+    <state x="552" y="257" key="Vcs.Push.Dialog.v2/0.0.1920.1050/1920.0.1680.1020@0.0.1920.1050" timestamp="1584551081469" />
+    <state x="2042" y="-12" width="1504" height="1001" maximized="true" key="dock-window-1" timestamp="1584551081469" />
+    <state x="2042" y="-12" width="1504" height="1001" maximized="true" key="dock-window-1/0.0.1920.1050/1920.0.1680.1020@0.0.1920.1050" timestamp="1584551081469" />
+    <state x="661" y="309" key="git4idea.merge.GitPullDialog" timestamp="1584551131955">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state x="661" y="309" key="git4idea.merge.GitPullDialog/0.0.1366.728@0.0.1366.728" timestamp="1584551131955" />
+    <state x="661" y="316" key="git4idea.merge.GitPullDialog/0.0.1920.1050/1920.0.1680.1020@0.0.1920.1050" timestamp="1584551081469" />
+    <state x="466" y="263" key="git4idea.ui.GitStashDialog" timestamp="1584551121924">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state x="466" y="263" key="git4idea.ui.GitStashDialog/0.0.1366.728@0.0.1366.728" timestamp="1584551121924" />
+    <state x="346" y="49" width="672" height="678" key="search.everywhere.popup" timestamp="1584553454072">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state x="346" y="49" width="672" height="678" key="search.everywhere.popup/0.0.1366.728@0.0.1366.728" timestamp="1584553454072" />
   </component>
 </project>

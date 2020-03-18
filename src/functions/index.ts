@@ -1,5 +1,3 @@
-import {compose} from "ramda";
-
 let config = {
     hue: 0,
     bgFillColor: `rgba(50, 50, 50, .05)`,
@@ -39,13 +37,31 @@ const infinityReduceLoop = <T>(
 //     )(dots)
 // }, []);
 
-// Do notation =>
-// const result = do(
-//     () => ({ numb: 1 }),
-//     () => ({ msg: "Hello" }),
-//     () => ({ msg: "Hello" }),
-// ).done(({ numb, msg }) => {
-//
-//
-//     return 1;
-// });
+
+const toDo = <D, R>(sequenceFunc: ((data?: (D & R)) => R)[], initialValue: D) => {
+    const dataDone = sequenceFunc.reduce((acc, currentFunc) => {
+        const resultFunc = currentFunc(acc);
+        return {
+            ...acc,
+            ...resultFunc
+        }
+    }, initialValue);
+
+    return {
+        done: (callback: (data: R) => any) => callback(dataDone)
+    }
+};
+
+const result = toDo(
+    [
+        () => ({age: 20}),
+        () => ({year: 2020}),
+    ],
+    {
+        name: "Alex"
+    }
+).done(data => {
+    return data;
+});
+
+console.log("result", result);
