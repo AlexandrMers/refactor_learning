@@ -1,3 +1,5 @@
+import {compose} from "ramda";
+
 let config = {
     hue: 0,
     bgFillColor: `rgba(50, 50, 50, .05)`,
@@ -31,6 +33,19 @@ const infinityReduceLoop = <T>(
     requestAnimationFrame(() => infinityReduceLoop(func, func(initialValue)));
 };
 
-infinityReduceLoop((param) => {
-    return ++param;
-}, 0);
+// infinityReduceLoop((dots) => {
+//     return compose(
+//
+//     )(dots)
+// }, []);
+
+// Do notation =>
+// const result = do(
+//     () => ({ numb: 1 }),
+//     () => ({ msg: "Hello" }),
+//     () => ({ msg: "Hello" }),
+// ).done(({ numb, msg }) => {
+//
+//
+//     return 1;
+// });

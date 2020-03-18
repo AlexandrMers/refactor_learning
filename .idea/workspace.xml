@@ -2,10 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="2f723647-bd66-4d12-b263-fde8be6dc4b5" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/deployment.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app.ts" beforeDir="false" afterPath="$PROJECT_DIR$/app.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/functions/Motion/index.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/functions/RenderDots/renderDots.ts" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/functions/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/functions/index.ts" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -46,6 +44,7 @@
   <component name="PropertiesComponent">
     <property name="DefaultHtmlFileTemplate" value="HTML File" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="list.type.of.created.stylesheet" value="CSS" />
@@ -99,7 +98,8 @@
       <workItem from="1584097936109" duration="10197000" />
       <workItem from="1584335734421" duration="17799000" />
       <workItem from="1584357245426" duration="10033000" />
-      <workItem from="1584421664581" duration="7270000" />
+      <workItem from="1584421664581" duration="7329000" />
+      <workItem from="1584514292569" duration="1697000" />
     </task>
     <task id="LOCAL-00001" summary="разбил по классам большинство методов.">
       <created>1583929302206</created>
@@ -171,7 +171,14 @@
       <option name="project" value="LOCAL" />
       <updated>1584367274755</updated>
     </task>
-    <option name="localTasksCounter" value="11" />
+    <task id="LOCAL-00011" summary="Начал делать реализацию на функциях. Написал функцию infinityLoopWithCicle">
+      <created>1584429943903</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1584429943903</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -205,7 +212,8 @@
     <MESSAGE value="отрефакторил методы Motion. Рефактор класса CanvasDrawerBase и его наследников." />
     <MESSAGE value="Сделал 3 вариации движений." />
     <MESSAGE value="Начал делать реализацию на функциях." />
-    <option name="LAST_COMMIT_MESSAGE" value="Начал делать реализацию на функциях." />
+    <MESSAGE value="Начал делать реализацию на функциях. Написал функцию infinityLoopWithCicle" />
+    <option name="LAST_COMMIT_MESSAGE" value="Начал делать реализацию на функциях. Написал функцию infinityLoopWithCicle" />
   </component>
   <component name="WindowStateProjectService">
     <state x="578" y="117" key="CommitChangelistDialog2" />
