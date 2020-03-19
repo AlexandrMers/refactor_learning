@@ -1,3 +1,5 @@
+import {compose, mergeRight} from "ramda";
+
 let config = {
     hue: 0,
     bgFillColor: `rgba(50, 50, 50, .05)`,
@@ -38,30 +40,25 @@ const infinityReduceLoop = <T>(
 // }, []);
 
 
-const toDo = <D, R>(sequenceFunc: ((data?: (D & R)) => R)[], initialValue: D) => {
-    const dataDone = sequenceFunc.reduce((acc, currentFunc) => {
-        const resultFunc = currentFunc(acc);
-        return {
-            ...acc,
-            ...resultFunc
-        }
-    }, initialValue);
+// const toDo = (sequenceFunc: ((data?) => any)[], initialValue: any) => {
+//     const decoratedFuncs = sequenceFunc.map((func) => (data) => mergeRight(data, func(data)));
+//     // @ts-ignore
+//     const dataDone = compose(...decoratedFuncs)(initialValue);
+//     return {
+//         done: (callback: (data: any) => any) => callback(dataDone)
+//     }
+// };
 
-    return {
-        done: (callback: (data: R) => any) => callback(dataDone)
-    }
+const bind = <T extends object, K extends object>(func: (data: T) => K) => {
+    let acc = {};
+
+    return (params: T) => mergeRight(params, func(params));
 };
 
-const result = toDo(
-    [
-        () => ({age: 20}),
-        () => ({year: 2020}),
-    ],
-    {
-        name: "Alex"
-    }
-).done(data => {
-    return data;
-});
+const result = compose(
+    (data) => {},
+    bind(() => ({ age: 20})),
+    bind(() => ({ year: 2020 })),
+);
 
 console.log("result", result);
